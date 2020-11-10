@@ -27,6 +27,9 @@ spring:
       maximum-pool-size: 5
     type: com.zaxxer.hikari.HikariDataSource
 
+liquibase:
+  changeLog: classpath:/db/changelog/db.changelog-master.xml
+
 ---
 ### Spring profile: local ###
 spring:

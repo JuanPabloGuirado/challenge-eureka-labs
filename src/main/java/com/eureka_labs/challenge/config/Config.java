@@ -11,7 +11,6 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class Config {
 
-    //configuracion del mapper para la libreria de jackson, atributos que definimos para realizar la llamada
     @Bean(name = "jsonObjectMapper")
     public ObjectMapper jsonObjectMapper() {
         ObjectMapper mapper = new ObjectMapper();

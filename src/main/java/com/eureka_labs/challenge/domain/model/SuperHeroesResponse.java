@@ -12,7 +12,6 @@ import java.util.List;
 @Data
 public class SuperHeroesResponse {
 
-    //lo que devuelve la llamada
     @ApiModelProperty(value = "List with all super heroes")
     List<SuperHeroe> superHeroList;
 }

@@ -15,7 +15,6 @@ public class JsonMarshaller {
     private static final String NULL = "null";
 
     @Autowired
-    //inyectando el mapper con reglas definidas en el bean para hacer el marshalin y unmarshalin
     @Qualifier("jsonObjectMapper")
     private ObjectMapper mapper;
 
