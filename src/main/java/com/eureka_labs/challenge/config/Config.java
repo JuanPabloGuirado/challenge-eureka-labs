@@ -11,7 +11,6 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class Config {
 
-
     @Bean(name = "jsonObjectMapper")
     public ObjectMapper jsonObjectMapper() {
         ObjectMapper mapper = new ObjectMapper();
