@@ -1,0 +1,58 @@
+### Default spring profile ###
+info:
+  app:
+    name: @name@
+    description: @description@
+    version: @version@
+
+server:
+   port: 8099
+   context-path: /marvel
+
+spring:
+  profiles:
+    active: local
+  application:
+    name: ${info.app.name}
+  jpa:
+    show-sql: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 5
+    type: com.zaxxer.hikari.HikariDataSource
+
+liquibase:
+  changeLog: classpath:/db/changelog/db.changelog-master.xml
+
+---
+### Spring profile: local ###
+spring:
+  profiles: local
+  jpa:
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Marvel-SuperHeroes
+    username: postgres
+    password: contrapostgrejpg
+
+logging:
+  file: .\marvelapi.log
+  level:
+    ROOT: INFO
+    com:
+      eureka_labs: DEBUG
+
+marvel:
+  url: "http://gateway.marvel.com/v1/public/"
+  key:
+    public: "82748df00b5d087de6b1f62d68807fe4"
+    private: "74e8ad5214de97dc64ccb2dfc1f8bb0ae4769f9c"
+
+app:
+  region: Local
