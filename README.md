@@ -43,7 +43,8 @@ Requerimientos detectados:
 - Desarrollar un servicio que consuma la api de marvel para obtener información de super héroes
 - Listar la información de todos los super héroes (nombre, descripción, etc)
 - Permitir buscar un super héroe por nombre
-- Almacenar datos de usuarios y sus lista de superheroes favoritos (permitir manipulación de la misma)
+- Almacenar datos de usuarios y sus lista de superheroes favoritos (permitir manipulación de la misma)(FALTO)
 - Crear archivos de logs
-- Paginar resultados a la hora de devolver todos los super heroes
-- Documentar las interfaces
+- Paginar resultados a la hora de devolver todos los super heroes(FALTO)
+- Documentar las interfaces(FALTO)
+
