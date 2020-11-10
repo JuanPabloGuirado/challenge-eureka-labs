@@ -9,6 +9,7 @@ import java.util.List;
 @Transactional
 public interface SuperHeroeRepository extends CrudRepository<SuperHeroe, Integer> {
 
+    //definir metodos especificos para el proyecto
     List<SuperHeroe> findAll();
 
     SuperHeroe findByName(String name);

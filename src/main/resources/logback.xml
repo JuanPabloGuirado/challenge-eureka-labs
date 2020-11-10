@@ -1,7 +1,7 @@
 <configuration>
-
+    <!-- archivo .log definido donde se muestran los logs -->
     <property name="HOME_LOG" value="logs/marvelapi.log"/>
-
+    <!-- configuracion de los logs por consola (consoleAppender), estos logs no persisten son solo "in memory" o volatiles -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
             <Pattern>

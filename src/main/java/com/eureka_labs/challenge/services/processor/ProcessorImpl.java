@@ -24,8 +24,10 @@ public class ProcessorImpl implements Processor {
 
     @Override
     public void loadSuperHeroes() {
+        //metodo get para la lista de super heroes
         List<Character> superHeroes = marvelService.getSuperHeroes();
 
+        //carga de resultados con un for each
         LOG.info("Start saving all superheroes in database...");
         for (Character marvelCharacter : superHeroes) {
             SuperHeroe superHeroe = new SuperHeroe();

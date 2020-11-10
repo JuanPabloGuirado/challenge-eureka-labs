@@ -1,6 +1,5 @@
 package com.eureka_labs.challenge.services.marvel;
 
-import com.eureka_labs.challenge.controllers.Controller;
 import com.eureka_labs.challenge.domain.marvel.Character;
 import com.eureka_labs.challenge.domain.marvel.MarvelResponse;
 import com.eureka_labs.challenge.utils.JsonMarshaller;
@@ -21,6 +20,8 @@ public class MarvelAPIServiceImpl implements MarvelAPIService {
 
     private static final Logger LOG = LoggerFactory.getLogger(MarvelAPIServiceImpl.class);
 
+    //los primeros 3 atributos estan externalizados en el application.yml por si los valores cambian en el futuro
+    //evitar configuraciones innecesarias
     @Value("${marvel.url}")
     private String marvelEndpoint;
 
@@ -44,12 +45,16 @@ public class MarvelAPIServiceImpl implements MarvelAPIService {
         String marvelURI = marvelEndpoint + "characters?ts=" + timestamp + "&apikey=" + publicKey + "&hash=" + md5Hash;
 
         LOG.info("Fetching marvel superheroes from external service...");
+        //consumiendo el servicio de marvel a traves del RestTemplate de Spring(la respuesta se almacena en un String)
         ResponseEntity<String> responseEntity = marvelRestTemplate.getForEntity(marvelURI, String.class);
+        // la respuesta anterior que contiene el json representado a traves de un string, se unmarshallea
+        // en una clase java creada (MarvelResponse) donde pueda manipular los datos obtenidos a mi antojo
         MarvelResponse marvelResponse = (MarvelResponse) jsonMarshaller.unmarshal(responseEntity.getBody(), MarvelResponse.class);
         return marvelResponse.getData().getCharacterList();
     }
 
     private String generateHash(String timestamp) {
+        //el md5 es generado con la libreria externa apache commons
         return DigestUtils.md5Hex(timestamp.concat(privateKey).concat(publicKey));
     }
 
